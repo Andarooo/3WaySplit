@@ -24,19 +24,19 @@ Let's say you want to take my slop of gerbers and STLs and make a functional key
  - A bunch of random crap most likely off Amazon (boo) or Ali-Express (not a boo but it's still not great)
  - Time & money
 
- If you have enough time and attention span that you're still reading you might be in a hyperfocus spiral; maybe go get some more coffee, but also keep reading in order and you should have a decent idea on how to get this keeb up and running. I'll try to structure everything in the order that you would expect to do it in. Anyway, without further ado let's throw ourselves into:
+ If you have enough time and attention span that you're still reading then you might be in a hyperfocus spiral; maybe go get some more coffee. But also keep reading in order and you should have a decent idea on how to get this keeb up and running. I'll try to structure everything in the order that you would expect to do it in. Anyway, without further ado let's throw ourselves into:
 
  ## Parts
 
  So here's a list of all the random bits to get off your horrifying conglomerate market of choice:
  - SOD-123 diodes (107)
-    - I went for 1n4148 but any that'll fit the sod-123 form that work for keebs will do.
+    - I went for 1n4148 but any that'll fit the sod-123 form and work with keebs will do.
  - Hotswap sockets (107)
     - These PCBs were made with the intended use of kailh hotswap sockets, any that fit will work so don't get too precious about it
  - Developer boards (3). 
     - The PCBs are made with the nice!nano in mind, you could modify the PCB files and regenerate gerbers and change that but if you're cabable of that why are you looking at my crappy design?
     - You could also use any of the knock of nice!nanos which are significantly cheaper (sorry Nick Winans); especially if you live outside the US. (googling pro micro or nice!nano will probably get you somewhere) 
-        - The companies that make these are kinda trash because they're exploiting someone else's R&D so if you can buy the real deal but also business is business y'know.
+        - The companies that make these are kinda trash because they're exploiting someone else's R&D. I you can buy the real deal pls do, but also business is business y'know.
     - You'll need one per part of the keeb so go ahead and buy 3.
  - M3 screw hot inserts.
     - You use a soldering iron to push these into a slot which adds a threaded insert so you can screw stuff together.
@@ -50,7 +50,7 @@ Let's say you want to take my slop of gerbers and STLs and make a functional key
     - There's honestly too many options for me to go into here so I guess just google it or watch some weird cringy keebfluencer.
  - Keycaps
     - See above.
-    - I did mess up and chose to have a 2.5u spacebar without realising they're actually pretty uncommon so you can eiter just use a 2.25u with a gap or go track one down. Most sets will have the 3u spacebar that I 
+    - I did mess up and chose to have a 2.5u spacebar without realising they're actually pretty uncommon so you can eiter just use a 2.25u with a gap or go track one down. Most sets will have the 3u spacebar that I designed the right side for
  - Key stabilisers
     - These are for the longer keys.
     - All the stab slots are meant for the regular 2u stabs so don't get a spacebar stab; it won't get used. (I think there's 7?)
@@ -59,7 +59,7 @@ Let's say you want to take my slop of gerbers and STLs and make a functional key
 
 ## PCB Printing
 
-So this bit is actually way easier than it sounnds, but you jump on the website of the pcb printer of our choice and upload the gerbers which are in the [gerber directory](https://github.com/Andarooo/3WaySplit/tree/main/PCB/Gerbers). It'll take a little while and for the most part just choose the standard settings. We only need the regular 2 layer PCB and also change the mask colour to whatever you'd like to see (I got purple).
+So this bit is actually way easier than it sounds, but you jump on the website of the pcb printer of our choice and upload the gerbers which are in the [gerber directory](https://github.com/Andarooo/3WaySplit/tree/main/PCB/Gerbers). It'll take a little while and for the most part just choose the standard settings. We only need the regular 2 layer PCB and also change the mask colour to whatever you'd like to see (I got purple).
 
 ## PCB Assembly
 
@@ -85,7 +85,7 @@ Soldering SMD parts can be annoying but in general it comes down to 3 steps:
 2. Put the part on and re-melt the solder to attach the part.
 3. Add solder to the other pad to connect up the other side of the part.
 
-It's much easier for to do the sockets than the diodes because I'm an idiot and thought it'd be fun to choose the smaller SMD form factor.
+It's much easier to do the sockets than the diodes because I'm an idiot and thought it'd be fun to choose the smaller SMD form factor.
 
 ***REMEMBER THAT DIODES HAVE A DIRECTION***
 
@@ -101,7 +101,7 @@ For the microcontroller board, there is some assumptions that I've made with reg
 
 This bit should be pretty straightforward if you've done some 3d printing before. 
 
-There are 3 sets of parts the plates, the enclosures and the feet. I would recommend printing the plates first to get an idea of how well your printer will handle it and if it will fit the build. The right side is the largest so if you can print the right enclosure you'll be g.
+There are 3 sets of parts; the plates, the enclosures and the feet. I would recommend printing the plates first to get an idea of how well your printer will handle it and if it will fit the build. The right side is the largest so if you can print the right enclosure you'll be g.
 
 The case STLs are made up of a top and bottom piece, I'll leave that to you to work out on the slicer. They attach together later using the m3 screws and inserts.
 
@@ -118,9 +118,9 @@ Each bottom part has slots for where the feet will attach. ***Do not put the ins
 
 ## Firmware + Test
 
-You should probably flash the firmware before you assemble as you'll need access to the controller boards to put them into bootloader mode. First go to the [zmk-3waysplit](https://github.com/Andarooo/zmk-3waysplit) repo and navigate to actions (near the top). Then click on the last successful workflow run and scroll down to the Artifacts where there should be a firmware artifact which you can download. Adfter downloading this you should be able to unzip each of the firmwares for each part.
+You should probably flash the firmware before you assemble as you'll need access to the controller boards to put them into bootloader mode. First go to the [zmk-3waysplit](https://github.com/Andarooo/zmk-3waysplit) repo and navigate to actions (near the top). Then click on the last successful workflow run and scroll down to the Artifacts where there should be a firmware artifact which you can download. After downloading this you should be able to unzip each of the firmwares for each part.
 
-Connect the baoard to the pc using a USB C cable and it should enter in boorloader mode where it will essentially open as a mounted drive (like a flash drive or similar) if it isn't in bootloader mode simply short the reset pin to the ground (should be next to it) twice in quick succession using some wire or tweezers etc.
+Connect the board to the pc using a USB C cable and it should enter in bootloader mode where it will essentially open as a mounted drive (like a flash drive or similar) if it isn't in bootloader mode simply short the reset pin to the ground (should be next to it) twice in quick succession using some wire or tweezers etc.
 
 Now simply copy the appropriate firmware file onto the root directory of the drive and it should reset. You should now essentially have a working keeb or part there of. And can test each switch by shorting the contacts on each slot again using wire or tweezers or something else metal. I would reccommend testing the whole keeb before assembly as now is the best time to fix dodgy soldering etc.
 
@@ -128,19 +128,19 @@ Now simply copy the appropriate firmware file onto the root directory of the dri
 
 This is the real fun bit where everything comes together. Assuming you've done everything right this should be a cakewalk.
 
-Make sure to put in your stabilisers before the switches, you can watch a google or just work it out. It's not rocket science
+Make sure to put in your stabilisers before the switches, you can watch a video or just work it out. It's not rocket science
 
 Then start by adding a couple switches into their slots in the plate, preferably on the corners then push the the switches into their PCB slots to marry the PCB and plate together. Make sure you put the switches in the right direction and orientation when attaching to the plate; though it will be pretty obvious if you mess up and can be easily remedied.
 
 Once that's done add the switches one by one making sure they're fully inserted into the pcb and clicked into place in the plate. It's easy to bend a pin if you're not paying attention while adding the switch to the pcb slot. If this happens just carefully remove it and try and bend the pin straight again with some pliers or something then be careful putting it back in this time. Always worth having a few spare switches for this reason.
 
-Once all your switches are all inserted it's time to assemble the enclosures. It al fits together like a sandwich with the plate in between. Do a dry fit first to get an idea of how the keeb will all go together and don't force anything; any printing defects can be cut or sanded to fit so don't break stuff because you thought yourself a caveman.
+Once all your switches are all inserted it's time to assemble the enclosures. It all fits together like a sandwich with the plate in between. Do a dry fit first to get an idea of how the keeb will all go together and don't force anything; any printing defects can be cut or sanded to fit so don't break stuff because you thought yourself a caveman.
 
-I would also recommend putting some padding where the plate gets sandwhiched into the case to help with noise. I just used some double sided foam tape with the plastic linine unremoved. This is the "gasket" in gasket mounted design. No clue if it actually does anything to the sound so feel free to explore this.
+I would also recommend putting some padding where the plate gets sandwiched into the case to help with noise. I just used some double sided foam tape with the plastic linine unremoved. This is the "gasket" in gasket mounted design. No clue if it actually does anything to the sound so feel free to explore this.
 
 Screws go in from the bottom into the inserts in the top. There are various sizes for each part. The numpad should be 2x 20mm screws and 2x 16mm screws. I designed it first; can you tell? The others should all be 10 or 12 depending how deep you added the inserts.
 
-Now it's time to add your keycaps. If you bought a set they should be in the correct arangement. Otherwise I guess refer to the [layouts](https://github.com/Andarooo/3WaySplit/tree/main/Layout) I've made as to where everything should go. or just google it I guess. You can also change the layout with your own by forking the smk config I have and making your own. Crazy huh?
+Now it's time to add your keycaps. If you bought a set they should be in the correct arangement. Otherwise I guess refer to the [layouts](https://github.com/Andarooo/3WaySplit/tree/main/Layout) I've made as to where everything should go. or just google it I guess. You can also change the layout with your own by forking the zmk config I have and making your own. Crazy huh?
 
 The feet attach with a couple of 4mm screws and should face with the rounded side of the feet towards the front of the keeb.
 
